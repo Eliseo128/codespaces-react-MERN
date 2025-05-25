@@ -1,5 +1,79 @@
 # GitHub Codespaces ♥️ React
 
+# prisma
+https://www.prisma.io/docs/orm/overview/databases/sqlite
+https://pris.ly/cli/beyond-orm
+- instalacion de prisma en directorio raiz
+
+ npm install prisma @prisma/client --save-dev
+- Inicializar prisma para la carpeta prisma/ y generar el archivo .env mas el archivo schema.prisma
+
+ npx prisma init    
+
+el modelo del esquema es el siguiente:
+
+```prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+model tasks {
+  id Int @id @default(autoincrement())
+  tittle String 
+  description String 
+  done Boolean @default(false)
+  create_at DateTime @default(now())
+}
+
+```
+- https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration/introduction#3-importing-prisma-client
+# Generar el Cliente Prisma
+
+ npx prisma generate
+
+# Ejecutar Migraciones
+
+ npx prisma migrate dev --name init
+
+# Instalar sqlite3
+
+ npm install sqlite3 --save-dev
+# dotenv
+- Instalar dotenv para leer el archivo .env
+
+ npm install dotenv --save-dev  
+# express
+- Instalar express para crear el servidor
+
+ npm install express --save-dev
+
+ # cors
+- Instalar cors para permitir el acceso a la api desde el frontend
+
+ npm install cors --save-dev
+
+ # nodemon
+- Instalar nodemon para reiniciar el servidor automaticamente
+
+ npm install nodemon --save-dev 
+ # axios
+- Instalar axios para hacer peticiones http desde el frontend
+
+ npm install axios --save-dev
+# bcrypt
+- Instalar bcrypt para encriptar las contraseñas
+
+ npm install bcrypt --save-dev
+ # jsonwebtoken 
+- Instalar jsonwebtoken para crear tokens de acceso
+
+ npm install jsonwebtoken --save-dev    
+
+
 Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
 
 You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
